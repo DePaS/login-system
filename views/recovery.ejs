@@ -1,0 +1,43 @@
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel='stylesheet' href='/app.css' />
+    <link rel='stylesheet' href='/media_query.css' />
+    <meta name="viewport" content="initial-scale=0.85, maximum-scale=0.85, user-scalable=no" />
+</head>
+
+<body>
+            <% if(locals.err_msg_mail) { %>
+                <div class="msg_err_lgn" id="mail-err_lgn">
+                    <%= err_msg_mail %>
+                </div>
+                <% } %>
+                    <% if(locals.err_msg_psw) { %>
+                        <div class="msg_err_lgn" id="psw-err-lgn">
+                            <%= err_msg_psw %>
+                        </div>
+                        <% } %>
+                            <div>
+                                <img
+                                    src="https://image.freepik.com/free-vector/artistic-leaf-logo-design-agriculture-company_100735-16.jpg">
+                                <h2>LOGIN</h2>
+                                <form action="/recovery" method="POST" id="invia" autocomplete="off">
+                                    <input type="password" id="email" name="email" placeholder="Nuova password"
+                                        autocomplete="false" <% if(locals.temp_email) { %> value="<%= temp_email %>" <%
+                                            } %>>
+                                                <% if(locals.err_msg_mail) { %>
+                                                        <h4 class="msg_err_mobile" id="msg_mob_1">
+                                                            <%= err_msg_mail %>
+                                                        </h4>
+                                                        <% } %>
+                                                        <input type="password" id="password" name="password"
+                                                            placeholder="Conferma password">
+                                                            <% if(locals.err_msg_psw) { %>
+                                                        <h4 class="msg_err_mobile" id="msg_mob_2">
+                                                            <%= err_msg_psw %>
+                                                        </h4>
+                                                        <% } %>
+                                                                    <button type="submit">Cambia Password</button>
+                                </form>
+                            </div>
+</body>

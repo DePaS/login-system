@@ -1,0 +1,38 @@
+<head>
+    <link rel='stylesheet' href='/intermezzo.css'>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+    <body>
+    <% if (locals.success) { %>
+        <div>
+        <img src="https://static.vecteezy.com/ti/vettori-gratis/p1/568375-icona-del-lucchetto-gratuito-vettoriale.jpg">    
+        <h4>
+            <%= success %>
+        </h4>
+        <% } %>
+            <% if (locals.reminder) { %>
+                <h2>
+                    <%= reminder %>
+                </h2>
+                <% } %>
+                    <% if (locals.token_recovery) { %>
+                        <h3>
+                            <%= token_recovery %>
+                        </h3>
+                        <% } %>
+                            <h5 id="timer">30</h5>
+                            <script>
+                                setTimeout(function () {
+                                    window.location = '/home';
+                                }, 30000);
+                                var x = 30;
+                                var countDown = setInterval(function () {
+                                    document.getElementById('timer').innerHTML = x;
+                                    x--;
+                                    if (x == -1) {
+                                        clearInterval(countDown);
+                                    }
+                                }, 1000);
+                            </script>
+                          </div>                
+    </body>

@@ -1,0 +1,58 @@
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel='stylesheet' href='/app.css' />
+    <link rel='stylesheet' href='/media_query.css' />
+    <meta name="viewport" content="initial-scale=0.85, maximum-scale=0.85, user-scalable=no" />
+
+</head>
+
+<body>
+    <% if(locals.codice_qr) { %>
+        <img src="<%= codice_qr %>" id="qrcode">
+        <% } %>
+            <% if(locals.err_msg_mail) { %>
+                <div class="msg_err_lgn" id="mail-err_lgn">
+                    <%= err_msg_mail %>
+                </div>
+                <% } %>
+                    <% if(locals.err_msg_psw) { %>
+                        <div class="msg_err_lgn" id="psw-err-lgn" style="top:-15px;">
+                            <%= err_msg_psw %>
+                        </div>
+                        <% } %>
+                            <div>
+                                <img
+                                    src="https://image.freepik.com/free-vector/artistic-leaf-logo-design-agriculture-company_100735-16.jpg">
+                                <h2>Autenticazione a due fattori</h2>
+                                <form action="/doublefa" method="POST" id="invia" autocomplete="off">
+                                    <% if(!locals.recovery_token) { %>
+                                    <input type="password" id="password" name="password" placeholder="Codice">
+                                    <% } %>
+                                    <% if(locals.recovery_token) { %>
+                                    <input type="password" id="codice" name="codice" placeholder="Codice Rimozione">
+                                    <% } %>
+                                    <% if(locals.err_msg_psw) { %>
+                                        <h4 class="msg_err_mobile" id="msg_mob_2">
+                                            <%= err_msg_psw %>
+                                        </h4>
+                                        <% } %>
+                                            <button type="submit">Invia</button>
+                                            <a href="/doublefa?remove=yes&rembymail=true" id='recover'>rimuovi tramite
+                                                email</a>
+                                            </br>
+                                                    <a href="/doublefa?reset=true" id='recover'>rimuovi tramite
+                                                        token di recupero</a>
+                                </form>
+                                <ul class="nav">
+                                    <li><a href="/home">Home</a></li>
+                                </ul>
+                            </div>
+                            
+                            <% if(locals.doublefa) { %>
+                                <script>
+                                    window.location = '/doublefa?remove=yes&error=1';
+                                </script>
+                                <% } %>
+                                
+</body>

@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+}
+/*
+#email_confirmed {
+    display: none;
+}
+
+#cambia_pass {
+    display: none;
+}
+*/
+#conferma {
+    display: none;
+}

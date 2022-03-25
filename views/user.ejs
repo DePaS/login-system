@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <link rel='stylesheet' href='/profile.css' />
+        <link rel='stylesheet' href='/media_query.css' />
+        <meta name="viewport" content="initial-scale=0.85, maximum-scale=0.85, user-scalable=no" />
+        <script src="changepass.js"></script>
+    </head>
+    <body>
+        <h1>questo e' il tuo profilo <%= success %></h1>
+        <h3>la tua email: <%= email_session %></h3>
+        <% if(!locals.tokeninv) { %>
+        <a href="#" id="cambia">cambia password</a>  <br />
+        <% } %>
+        <a href="/user?token=true" id="conferma">Invia mail per token di conferma</a>
+        <% if(locals.tokeninv) { %>
+            <p id="email_confirmed">Email correttamente inviata, potrai richiedere un nuovo token tra 5 minuti</p>
+        <form action="/user" id="cambia_pass" method="POST">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Conferma password">
+            <input type="password" id="token" name="token" placeholder="Token">
+            <button type="submit">Register</button>
+        </form>
+        <% } %>
+        <% if(locals.msg_time) { %>
+        <p><% msg_time %></p>
+        <% } %>
+        <% if(!locals.doublefa) { %>
+        <a href="/doublefa">Aggiungi 2FA tramite app</a>
+        <% } %>
+        <% if(locals.doublefa) { %>
+        <a href="/doublefa?remove=yes">Rimuovi 2FA tramite app</a>
+        <% } %>
+        <p>non e' al momento possibile l'opzione tramite sms</p>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/app.css">
+<style>
+   div {
+      width: fit-content;
+      height: fit-content;
+      margin: 150px auto;
+      background: none;
+   }
+   #go_prfl {
+      color: black;
+   }
+</style>
+
+<h2>bentornato, <%= success %></h2>
+
+<form action="/home" method="POST" id="logout" autocomplete="off">
+   <button type="submit">LOGOUT</button>
+   
+</form>
+<div>
+   <a href="/user" id="go_prfl">Profilo</a>
+</div>
+

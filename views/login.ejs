@@ -1,0 +1,50 @@
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel='stylesheet' href='/app.css' />
+    <link rel='stylesheet' href='/media_query.css' />
+    <meta name="viewport" content="initial-scale=0.85, maximum-scale=0.85, user-scalable=no" />
+    <title>depas</title>
+</head>
+
+<body>
+            <% if(locals.err_msg_mail) { %>
+                <div class="msg_err_lgn" id="mail-err_lgn">
+                    <%= err_msg_mail %>
+                </div>
+                <% } %>
+                    <% if(locals.err_msg_psw) { %>
+                        <div class="msg_err_lgn" id="psw-err-lgn">
+                            <%= err_msg_psw %>
+                        </div>
+                        <% } %>
+                            <div>
+                                <img
+                                    src="https://image.freepik.com/free-vector/artistic-leaf-logo-design-agriculture-company_100735-16.jpg">
+                                <h2>LOGIN</h2>
+                                <form action="/login" method="POST" id="invia" autocomplete="off">
+                                    <input type="text" id="email" name="email" placeholder="E-Mail"
+                                        autocomplete="false" <% if(locals.temp_email) { %> value="<%= temp_email %>" <%
+                                            } %>>
+                                                <% if(locals.err_msg_mail) { %>
+                                                        <h4 class="msg_err_mobile" id="msg_mob_1">
+                                                            <%= err_msg_mail %>
+                                                        </h4>
+                                                        <% } %>
+                                                        <input type="password" id="password" name="password"
+                                                            placeholder="Password">
+                                                            <% if(locals.err_msg_psw) { %>
+                                                        <h4 class="msg_err_mobile" id="msg_mob_2">
+                                                            <%= err_msg_psw %>
+                                                        </h4>
+                                                        <% } %> 
+                                                                    <input type="checkbox" id="checkbox" value="checked" name="checkbox"> <label for="checkbox">Remember me</label>
+                                                                    <button type="submit">Login</button>
+                                                                    <a href="/recover" id='recover'>password dimenticata?</a>
+                                </form>
+                                <ul class="nav">
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/home">Home</a></li>
+                                </ul>
+                            </div>
+</body>

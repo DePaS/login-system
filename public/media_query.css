@@ -1,0 +1,21 @@
+@media screen and (max-width: 576px) {
+	div {
+	  max-width: 87%;
+  }
+  }
+  
+  @media screen and (max-device-width: 480px) {
+	div {
+	  max-width: 87%;
+  }
+  }
+
+@media screen and (max-width: 1081px) {
+.msg_err, .msg_err_lgn {
+      display: none;
+  }
+  .msg_err_mobile {
+    display: block;
+}
+
+  }

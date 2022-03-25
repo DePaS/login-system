@@ -1,0 +1,44 @@
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel='stylesheet' href='/app.css' />
+    <link rel='stylesheet' href='/media_query.css' />
+    <style>
+        div {
+            height: 550px;
+        }
+    </style>
+    <meta name="viewport" content="initial-scale=0.85, maximum-scale=0.85, user-scalable=no" />
+</head>
+
+<body>
+    <div>
+        <h3>
+            Se hai dimenticato la tua password, inserisci la tua e-mail nel form qui sotto, ti sarà inviata una e-mail con un link per cambiare la tua password
+        </h3>
+    </div>
+    <% if(locals.err_msg_mail) { %>
+        <div class="msg_err_lgn" id="mail-err_lgn">
+            <%= err_msg_mail %>
+        </div>
+        <% } %>
+            <div>
+                <img
+                    src="https://image.freepik.com/free-vector/artistic-leaf-logo-design-agriculture-company_100735-16.jpg">
+                <h2>Password dimenticata</h2>
+                <form action="/recover" method="POST" id="invia" autocomplete="off">
+                    <input type="text" id="email" name="email" placeholder="E-Mail" autocomplete="false" <%
+                        if(locals.temp_email) { %> value="<%= temp_email %>" <% } %>>
+                            <% if(locals.err_msg_mail) { %>
+                                <h4 class="msg_err_mobile" id="msg_mob_1">
+                                    <%= err_msg_mail %>
+                                </h4>
+                                <% } %>
+                                    <button type="submit">Recupera</button>
+                </form>
+                <ul class="nav">
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div>
+</body>

@@ -1,0 +1,36 @@
+{
+  "name": "appagri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "alert": "^5.0.10",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-mysql-session": "^2.1.5",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.4.18",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "path": "^0.12.7",
+    "popup": "0.0.3",
+    "popups": "^1.1.3",
+    "qrcode": "^1.4.4",
+    "speakeasy": "^2.0.0"
+  },
+  "devDependencies": {
+    "hint": "^6.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

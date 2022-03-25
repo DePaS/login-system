@@ -1,0 +1,79 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DePaS</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel='stylesheet' href='/app.css' />
+    <link rel='stylesheet' href='/media_query.css' />
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <% if(locals.err_msg_user) { %>
+        <div class="msg_err" id="campi-err">
+            <%= err_msg_user %>
+        </div>
+        <% } %>
+            <% if( locals.err_msg_mail) { %>
+                <div class="msg_err" id="mail-err">
+                    <%= err_msg_mail %>
+                </div>
+                <% } %>
+                    <% if( locals.err_msg_psw ) { %>
+                        <div class="msg_err" id="psw-err">
+                            <%= err_msg_psw %>
+                        </div>
+                        <% } %>
+                        <% if(locals.err_msg_confirm) { %>
+                            <div class="msg_err" id="confirm-err">
+                                <%= err_msg_confirm %>
+                            </div>
+                            <% } %>
+                            <div id="register">
+                                <img
+                                    src="https://image.freepik.com/free-vector/artistic-leaf-logo-design-agriculture-company_100735-16.jpg" alt="/">
+                                <h2>REGISTER</h2>
+                                <form action="/register" method="POST" id="invia" autocomplete="off">
+                                    <label for="name"></label>
+                                    <input autocomplete="new-password" type="text" id="name" name="name"
+                                        placeholder="User" <% if(locals.temp_user) { %> value="<%= temp_user %>" <% } %>
+                                            >
+                                            <% if(locals.err_msg_user) { %>
+                                            <h4 class="msg_err_mobile" id="msg_mob_1">
+                                                <%= err_msg_user %>
+                                            </h4>
+                                            <% } %>
+                                            <label for="email"></label>
+                                            <input type="text" id="email" name="email" placeholder="E-Mail" <%
+                                                if(locals.temp_email) { %>
+                                            value="<%= temp_email %>" <% } %>>
+                                            <% if(locals.err_msg_mail) { %>
+                                                    <h4 class="msg_err_mobile" id="msg_mob_2">
+                                                        <%= err_msg_mail %>
+                                                    </h4>
+                                                    <% } %>
+                                                    <label for="password"></label>
+                                                    <input type="password" id="password" name="password"
+                                                        placeholder="Password">
+                                                        <% if(locals.err_msg_psw) { %>
+                                                    <h4 class="msg_err_mobile" id="msg_mob_3">
+                                                        <%= err_msg_psw %>
+                                                    </h4>
+                                                    <% } %>
+                                                    <input type="password" id="confirm_password" name="confirm_password"
+                                                        placeholder="Conferma password">
+                                                        <% if(locals.err_msg_confirm) { %>
+                                                    <h4 class="msg_err_mobile" id="msg_mob_3">
+                                                        <%= err_msg_confirm %>
+                                                    </h4>
+                                                    <% } %>
+                                                    <button type="submit">Register</button>
+                                </form>
+                                <ul class="nav">
+                                    <li><a href="/login">Login</a></li>
+                                    <li><a href="/home">Home</a></li>
+                                </ul>
+                            </div>
+</body>
+</html>
